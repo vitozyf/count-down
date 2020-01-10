@@ -47,6 +47,11 @@
 		.tool input{
 			width: 50px;
 		}
+		audio{
+			position: absolute;
+			top: -100px;
+			left: -100px;
+		}
 	</style>
 </head>
 <body>
@@ -59,6 +64,17 @@
 		<button onclick="start()">开始</button>
 		<button onclick="stop()">停止</button>
 	</div>
+	<audio
+      id="audiobg"
+      preload="auto"
+      controls
+      onplay="playHandler(this)"
+      onpause="pauseHandler(this)"
+    >
+		<source src="./1.mp3" />
+		你的浏览器不支持audio标签
+	</audio>
+
 	<script src="./velocity.js"></script>
 	<script>
 
@@ -74,9 +90,14 @@
 		function start() {
 			clearInterval(timeid)
 			timeid = setInterval(() => {
+				const audiobg = document.querySelector('#audiobg');
+				audiobg.load()
+				audiobg.play()
 				if (timeRemaining <= 0) {
 					return stop()
 				}
+			
+			
 				const Ele = document.querySelector('.timecontainer');
 				const Ele1 = document.querySelector('.timecontainer1');
 				const Ele2 = document.querySelector('.timecontainer2');
@@ -113,6 +134,7 @@
 			
 				ValueEle.innerHTML = timeRemaining;
 				timeRemaining--;
+			
 			}, 1000);
 		}
 
@@ -121,6 +143,14 @@
 			timeRemaining = 60;
 			document.querySelector('#numberinput').value = 60;
 			document.querySelector('.value').innerHTML = '时间到';
+		}
+
+		function playHandler(params) {
+			
+		}
+
+		function pauseHandler(params) {
+			
 		}
 	</script>
 
