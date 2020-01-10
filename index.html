@@ -64,7 +64,7 @@
 		<button onclick="start()">开始</button>
 		<button onclick="stop()">停止</button>
 	</div>
-	<audio
+	<!-- <audio
       id="audiobg"
       preload="auto"
       controls
@@ -73,7 +73,7 @@
     >
 		<source src="./1.mp3" />
 		你的浏览器不支持audio标签
-	</audio>
+	</audio> -->
 
 	<script src="./velocity.js"></script>
 	<script>
@@ -90,9 +90,9 @@
 		function start() {
 			clearInterval(timeid)
 			timeid = setInterval(() => {
-				const audiobg = document.querySelector('#audiobg');
-				audiobg.load()
-				audiobg.play()
+				// const audiobg = document.querySelector('#audiobg');
+				// audiobg.load()
+				// audiobg.play()
 				if (timeRemaining <= 0) {
 					return stop()
 				}
