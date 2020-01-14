@@ -111,7 +111,11 @@
 					height: [1500, 300]
 					}, {
 						duration: 1000,
-						easing: 'linear'
+						easing: 'linear',
+						complete(){
+							Ele.style.width = 0;
+							Ele.style.height = 0;
+						}
 				})
 				Ele1.velocity({
 					opacity: [0, 0.6],
@@ -120,7 +124,11 @@
 					}, {
 						duration: 1000,
 						easing: 'linear',
-						delay: 30
+						delay: 30,
+						complete(){
+							Ele1.style.width = 0;
+							Ele1.style.height = 0;
+						}
 				})
 				Ele2.velocity({
 					opacity: [0, 1],
@@ -129,7 +137,11 @@
 					}, {
 						duration: 1000,
 						easing: 'linear',
-						delay: 60
+						delay: 60,
+						complete(){
+							Ele2.style.width = 0;
+							Ele2.style.height = 0;
+						}
 				})
 			
 				ValueEle.innerHTML = timeRemaining;
